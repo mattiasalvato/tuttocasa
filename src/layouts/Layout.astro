@@ -1,0 +1,210 @@
+---
+import "../styles/global.css";
+
+interface Props {
+  title: string;
+  description?: string;
+  transparentHeader?: boolean;
+}
+
+const {
+  title,
+  description = "Ferramenta Tuttocasa 1974 — Profumatori ambiente Muhà, capsule caffè Bialetti, polentine elettriche OVBC e casalinghi selezionati dal 1974.",
+  transparentHeader = false,
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="it" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="bg-[#FAF7F2] text-[#1E1B18] antialiased selection:bg-[#9C6644] selection:text-white">
+    <!-- Top Info Bar -->
+    <div class="bg-[#1E1B18] text-[#EDE6DC] text-xs tracking-wide py-2 px-4 text-center relative z-50">
+      <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-center gap-x-6 gap-y-1">
+        <span>Spedizione gratuita in Italia da <strong>29€</strong></span>
+        <span class="hidden sm:inline text-[#7F756B]">•</span>
+        <span class="hidden sm:inline">Consegna rapida 48/72h con BRT e SDA</span>
+        <span class="hidden md:inline text-[#7F756B]">•</span>
+        <span class="hidden md:inline">Assistenza WhatsApp: <a href="https://wa.me/39034581149" class="underline hover:text-white">0345 81149</a></span>
+      </div>
+    </div>
+
+    <!-- Sticky Shrinking Header -->
+    <header
+      id="site-header"
+      data-transparent={transparentHeader ? "true" : "false"}
+      class:list={[
+        "fixed top-8 left-0 right-0 z-40 transition-all duration-300",
+        transparentHeader
+          ? "bg-transparent text-white py-5"
+          : "bg-[#FAF7F2]/95 backdrop-blur-md text-[#1E1B18] py-4 border-b border-[#E5DDD3]",
+      ]}
+    >
+      <div class="max-w-7xl mx-auto px-5 sm:px-8 flex items-center justify-between">
+        <!-- Brand -->
+        <a href="/" class="flex items-center group">
+          <img
+            id="brand-logo"
+            src="/logo-tuttocasa.png"
+            alt="Tuttocasa 1974"
+            class:list={[
+              "h-10 sm:h-12 w-auto object-contain transition-all duration-300",
+              transparentHeader ? "brightness-0 invert" : "",
+            ]}
+          />
+        </a>
+
+        <!-- Desktop Nav -->
+        <nav class="hidden lg:flex items-center gap-8 text-sm font-medium">
+          <a href="/#collezioni" class="hover:opacity-70 transition-opacity">Profumatori Muhà</a>
+          <a href="/#caffe" class="hover:opacity-70 transition-opacity">Capsule Bialetti</a>
+          <a href="/prodotto" class="hover:opacity-70 transition-opacity">Scheda Prodotto</a>
+          <a href="/#polentine" class="hover:opacity-70 transition-opacity">Polentine OVBC</a>
+          <a href="/contatti" class="hover:opacity-70 transition-opacity">Contatti</a>
+        </nav>
+
+        <!-- Actions -->
+        <div class="flex items-center gap-3">
+          <a
+            href="https://www.amazon.it"
+            target="_blank"
+            rel="noopener noreferrer"
+            id="amazon-btn"
+            class:list={[
+              "hidden sm:inline-flex items-center gap-1.5 text-xs uppercase tracking-wider font-semibold px-4 py-2.5 rounded-full border transition-all",
+              transparentHeader
+                ? "border-white/40 text-white hover:bg-white hover:text-[#1E1B18]"
+                : "border-[#1E1B18]/20 text-[#1E1B18] hover:bg-[#1E1B18] hover:text-white",
+            ]}
+          >
+            Vetrina Amazon
+          </a>
+          <a
+            href="/prodotto"
+            class="inline-flex items-center gap-2 bg-[#9C6644] hover:bg-[#835335] text-white text-xs uppercase tracking-wider font-semibold px-5 py-2.5 rounded-full transition-colors"
+          >
+            Shop
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <slot />
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-[#1E1B18] text-[#D6CEC3] pt-16 pb-10 border-t border-[#2E2924]">
+      <div class="max-w-7xl mx-auto px-5 sm:px-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-[#2E2924]">
+        <div>
+          <img
+            src="/logo-tuttocasa.png"
+            alt="Tuttocasa 1974"
+            class="h-11 w-auto object-contain brightness-0 invert"
+          />
+          <p class="text-sm text-[#A69B8F] mt-4 leading-relaxed">
+            Dal 1974 selezioniamo profumazioni d’ambiente, accessori per la casa, caffè Bialetti e articoli per la cucina con spedizione rapida in tutta Italia.
+          </p>
+        </div>
+
+        <div>
+          <p class="text-xs uppercase tracking-[0.2em] text-white font-semibold mb-4">Catalogo</p>
+          <ul class="space-y-2.5 text-sm text-[#B7ADA1]">
+            <li><a href="/#collezioni" class="hover:text-white transition-colors">Diffusori & Ricariche Muhà</a></li>
+            <li><a href="/prodotto" class="hover:text-white transition-colors">Flower Diffuser 100ml</a></li>
+            <li><a href="/#caffe" class="hover:text-white transition-colors">Capsule Originali & Compatibili Bialetti</a></li>
+            <li><a href="/#polentine" class="hover:text-white transition-colors">Polentine Elettriche OVBC</a></li>
+            <li><a href="/#amazon" class="hover:text-white transition-colors">Store Ufficiale Amazon (+1000 articoli)</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <p class="text-xs uppercase tracking-[0.2em] text-white font-semibold mb-4">Assistenza & Spedizioni</p>
+          <ul class="space-y-2.5 text-sm text-[#B7ADA1]">
+            <li>Spedizione gratuita sopra i 29€</li>
+            <li>Corrieri espressi BRT e SDA (48/72h)</li>
+            <li>Pagamenti sicuri Stripe e PayPal</li>
+            <li><a href="/contatti" class="hover:text-white transition-colors">Contatta il negozio</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <p class="text-xs uppercase tracking-[0.2em] text-white font-semibold mb-4">Sede & Contatti</p>
+          <address class="not-italic text-sm text-[#B7ADA1] space-y-2">
+            <p class="text-white font-medium">FERRAMENTA TUTTOCASA S.N.C.</p>
+            <p>Via B. Belotti, 135 — 24014 Piazza Brembana (BG)</p>
+            <p>P.IVA 02977350160</p>
+            <p>Tel / WhatsApp: <a href="tel:034581149" class="text-white hover:underline">0345 81149</a></p>
+            <p>Email: <a href="mailto:info@tuttocasa1974.com" class="text-white hover:underline">info@tuttocasa1974.com</a></p>
+          </address>
+        </div>
+      </div>
+
+      <div class="max-w-7xl mx-auto px-5 sm:px-8 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#8C8175]">
+        <p>© {new Date().getFullYear()} Ferramenta Tuttocasa S.n.c. — Tutti i diritti riservati.</p>
+        <div class="flex items-center gap-5">
+          <a href="https://www.facebook.com" target="_blank" rel="noopener" class="hover:text-white transition-colors">Facebook</a>
+          <a href="https://www.instagram.com" target="_blank" rel="noopener" class="hover:text-white transition-colors">Instagram</a>
+          <a href="https://wa.me/39034581149" target="_blank" rel="noopener" class="hover:text-white transition-colors">WhatsApp</a>
+        </div>
+      </div>
+    </footer>
+
+    <style is:global>
+      .font-serif {
+        font-family: 'Cormorant Garamond', Georgia, serif;
+      }
+      body {
+        font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+      }
+    </style>
+
+    <script>
+      const header = document.getElementById('site-header');
+      const brandLogo = document.getElementById('brand-logo');
+      const amazonBtn = document.getElementById('amazon-btn');
+
+      if (header && header.dataset.transparent === 'true') {
+        const onScroll = () => {
+          const scrolled = window.scrollY > 40;
+          if (scrolled) {
+            header.classList.remove('bg-transparent', 'text-white', 'py-5', 'top-8');
+            header.classList.add('bg-[#FAF7F2]/95', 'backdrop-blur-md', 'text-[#1E1B18]', 'py-3', 'top-0', 'border-b', 'border-[#E5DDD3]', 'shadow-sm');
+            brandLogo?.classList.remove('brightness-0', 'invert');
+            amazonBtn?.classList.remove('border-white/40', 'text-white', 'hover:bg-white', 'hover:text-[#1E1B18]');
+            amazonBtn?.classList.add('border-[#1E1B18]/20', 'text-[#1E1B18]', 'hover:bg-[#1E1B18]', 'hover:text-white');
+          } else {
+            header.classList.add('bg-transparent', 'text-white', 'py-5', 'top-8');
+            header.classList.remove('bg-[#FAF7F2]/95', 'backdrop-blur-md', 'text-[#1E1B18]', 'py-3', 'top-0', 'border-b', 'border-[#E5DDD3]', 'shadow-sm');
+            brandLogo?.classList.add('brightness-0', 'invert');
+            amazonBtn?.classList.add('border-white/40', 'text-white', 'hover:bg-white', 'hover:text-[#1E1B18]');
+            amazonBtn?.classList.remove('border-[#1E1B18]/20', 'text-[#1E1B18]', 'hover:bg-[#1E1B18]', 'hover:text-white');
+          }
+        };
+        window.addEventListener('scroll', onScroll, { passive: true });
+        onScroll();
+      } else if (header) {
+        window.addEventListener('scroll', () => {
+          if (window.scrollY > 32) {
+            header.classList.remove('top-8', 'py-4');
+            header.classList.add('top-0', 'py-3', 'shadow-sm');
+          } else {
+            header.classList.add('top-8', 'py-4');
+            header.classList.remove('top-0', 'py-3', 'shadow-sm');
+          }
+        }, { passive: true });
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,297 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const categories = [
+  {
+    title: "Profumatori Muhà",
+    subtitle: "Diffusori a fiore, ricariche, spray tessuti e candele",
+    image: "https://images.unsplash.com/photo-1602928321679-560bb453f190?auto=format&fit=crop&w=900&q=80",
+    href: "/prodotto",
+  },
+  {
+    title: "Capsule Bialetti",
+    subtitle: "Originali, compatibili e set degustazione",
+    image: "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=900&q=80",
+    href: "#caffe",
+  },
+  {
+    title: "Casalinghi & Cucina",
+    subtitle: "Oggettistica funzionale per vivere la casa",
+    image: "https://images.unsplash.com/photo-1556911220-bff31c812dba?auto=format&fit=crop&w=900&q=80",
+    href: "/prodotto",
+  },
+  {
+    title: "Polentine Elettriche OVBC",
+    subtitle: "Tradizione bergamasca e qualità artigianale",
+    image: "https://images.unsplash.com/photo-1584990347449-fd98bc063110?auto=format&fit=crop&w=900&q=80",
+    href: "#polentine",
+  },
+];
+
+const featuredProducts = [
+  {
+    name: "Flower Diffuser Muhà — Fiori di Cotone",
+    category: "Profumatori Muhà",
+    format: "Diffusore 100 ml con fiore in legno di betulla",
+    price: "19,90 €",
+    image: "https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?auto=format&fit=crop&w=800&q=80",
+  },
+  {
+    name: "Ricarica Diffusore Ambiente Muhà",
+    category: "Ricariche Diffuser",
+    format: "Flacone 250 ml • 12 fragranze disponibili",
+    price: "14,50 €",
+    image: "https://images.unsplash.com/photo-1616046229478-9901c5536a45?auto=format&fit=crop&w=800&q=80",
+  },
+  {
+    name: "Spray Tessuti & Ambiente 250 ml",
+    category: "Profuma Bucato & Tessuti",
+    format: "Ideale per tende, divani e biancheria",
+    price: "12,90 €",
+    image: "https://images.unsplash.com/photo-1595425970377-c9703cf48b6d?auto=format&fit=crop&w=800&q=80",
+  },
+  {
+    name: "Box Degustazione Capsule Bialetti",
+    category: "Capsule Bialetti",
+    format: "48 capsule assortite • Gusti personalizzabili",
+    price: "18,90 €",
+    image: "https://images.unsplash.com/photo-1559056199-641a0ac8b55e?auto=format&fit=crop&w=800&q=80",
+  },
+];
+---
+
+<Layout title="Tuttocasa 1974 — Profumatori Muhà, Capsule Bialetti e Casalinghi" transparentHeader={true}>
+  <!-- Hero Section -->
+  <section class="relative min-h-[88vh] flex items-center bg-[#1E1B18] overflow-hidden">
+    <img
+      src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1920&q=85"
+      alt="Interno casa accogliente con profumatore ambiente"
+      class="absolute inset-0 w-full h-full object-cover opacity-55"
+    />
+    <div class="absolute inset-0 bg-gradient-to-r from-[#1E1B18]/85 via-[#1E1B18]/50 to-transparent"></div>
+
+    <div class="relative z-10 max-w-7xl mx-auto px-5 sm:px-8 pt-24 pb-16 w-full">
+      <div class="max-w-2xl">
+        <p class="text-xs uppercase tracking-[0.28em] text-[#E5D3C0] mb-4">
+          Ferramenta & Home Decor dal 1974
+        </p>
+        <h1 class="font-serif text-4xl sm:text-6xl lg:text-[64px] text-white font-medium leading-[1.08]">
+          Aggiungi un tocco di classe e freschezza alla tua casa.
+        </h1>
+        <p class="text-base sm:text-lg text-[#E6DFD6] mt-6 leading-relaxed max-w-xl">
+          Fragranze d’ambiente Muhà, capsule caffè Bialetti, polentine elettriche OVBC e casalinghi selezionati per accompagnare ogni momento della giornata.
+        </p>
+        <div class="mt-9 flex flex-wrap items-center gap-4">
+          <a
+            href="/prodotto"
+            class="bg-[#9C6644] hover:bg-[#835335] text-white text-xs uppercase tracking-[0.18em] font-semibold px-8 py-4 rounded-full transition-colors"
+          >
+            Vai allo Shop
+          </a>
+          <a
+            href="#collezioni"
+            class="border border-white/40 hover:bg-white hover:text-[#1E1B18] text-white text-xs uppercase tracking-[0.18em] font-semibold px-7 py-4 rounded-full transition-all"
+          >
+            Esplora le categorie
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust Strip -->
+  <section class="bg-[#F2ECE3] border-b border-[#E4DDD2]">
+    <div class="max-w-7xl mx-auto px-5 sm:px-8 py-7 grid grid-cols-1 md:grid-cols-3 gap-6 text-center md:text-left">
+      <div class="flex flex-col md:flex-row items-center gap-3.5">
+        <div class="w-10 h-10 rounded-full bg-[#FAF7F2] border border-[#DFD6C9] flex items-center justify-center shrink-0 text-[#9C6644] font-serif text-lg font-bold">
+          01
+        </div>
+        <div>
+          <p class="text-sm font-semibold text-[#1E1B18]">Spedizione Gratis da 29€</p>
+          <p class="text-xs text-[#6E645A]">Su tutti gli ordini in tutta Italia</p>
+        </div>
+      </div>
+
+      <div class="flex flex-col md:flex-row items-center gap-3.5">
+        <div class="w-10 h-10 rounded-full bg-[#FAF7F2] border border-[#DFD6C9] flex items-center justify-center shrink-0 text-[#9C6644] font-serif text-lg font-bold">
+          02
+        </div>
+        <div>
+          <p class="text-sm font-semibold text-[#1E1B18]">Consegna Rapida 48/72h</p>
+          <p class="text-xs text-[#6E645A]">Spedizioni tracciate con corrieri SDA e BRT</p>
+        </div>
+      </div>
+
+      <div class="flex flex-col md:flex-row items-center gap-3.5">
+        <div class="w-10 h-10 rounded-full bg-[#FAF7F2] border border-[#DFD6C9] flex items-center justify-center shrink-0 text-[#9C6644] font-serif text-lg font-bold">
+          03
+        </div>
+        <div>
+          <p class="text-sm font-semibold text-[#1E1B18]">Pagamenti Sicuri e Veloci</p>
+          <p class="text-xs text-[#6E645A]">Transazioni protette tramite PayPal e Stripe</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Categories Grid -->
+  <section id="collezioni" class="max-w-7xl mx-auto px-5 sm:px-8 py-20">
+    <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
+      <div>
+        <p class="text-xs uppercase tracking-[0.24em] text-[#9C6644] font-semibold">Le nostre linee</p>
+        <h2 class="font-serif text-3xl sm:text-5xl font-medium mt-2 text-[#1E1B18]">
+          Collezioni per la casa
+        </h2>
+      </div>
+      <p class="text-sm text-[#6B6157] max-w-md">
+        Dalle fragranze artigianali Muhà ai grandi classici della cucina italiana: una selezione curata dal nostro punto vendita di Piazza Brembana.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      {categories.map((cat) => (
+        <a href={cat.href} class="group block">
+          <div class="relative aspect-[4/5] rounded-2xl overflow-hidden bg-[#EBE4DA]">
+            <img
+              src={cat.image}
+              alt={cat.title}
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-[#1E1B18]/75 via-transparent to-transparent"></div>
+            <div class="absolute bottom-5 left-5 right-5 text-white">
+              <h3 class="font-serif text-2xl font-medium">{cat.title}</h3>
+              <p class="text-xs text-white/80 mt-1 leading-relaxed">{cat.subtitle}</p>
+            </div>
+          </div>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <!-- Featured Products -->
+  <section class="bg-[#F2ECE3]/65 py-20 border-y border-[#E6DFD5]">
+    <div class="max-w-7xl mx-auto px-5 sm:px-8">
+      <div class="flex items-end justify-between mb-12">
+        <div>
+          <p class="text-xs uppercase tracking-[0.24em] text-[#9C6644] font-semibold">I più richiesti</p>
+          <h2 class="font-serif text-3xl sm:text-5xl font-medium mt-2">Scelti dai nostri clienti</h2>
+        </div>
+        <a href="/prodotto" class="hidden sm:inline-block text-xs uppercase tracking-wider font-semibold text-[#1E1B18] border-b border-[#1E1B18] pb-1 hover:text-[#9C6644] hover:border-[#9C6644] transition-colors">
+          Vedi dettaglio prodotto →
+        </a>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-7">
+        {featuredProducts.map((item) => (
+          <article class="bg-[#FAF7F2] rounded-2xl border border-[#E5DDD2] overflow-hidden flex flex-col justify-between group">
+            <div>
+              <a href="/prodotto" class="block aspect-square overflow-hidden bg-[#EDE6DC]">
+                <img
+                  src={item.image}
+                  alt={item.name}
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+              </a>
+              <div class="p-5">
+                <p class="text-[11px] uppercase tracking-wider text-[#9C6644] font-semibold">{item.category}</p>
+                <h3 class="font-serif text-xl font-semibold mt-1 text-[#1E1B18] leading-snug">
+                  <a href="/prodotto" class="hover:text-[#9C6644] transition-colors">{item.name}</a>
+                </h3>
+                <p class="text-xs text-[#72675D] mt-1.5">{item.format}</p>
+              </div>
+            </div>
+            <div class="px-5 pb-5 pt-2 flex items-center justify-between border-t border-[#EFE8DE]">
+              <span class="text-base font-semibold text-[#1E1B18]">{item.price}</span>
+              <a
+                href="/prodotto"
+                class="text-xs font-semibold uppercase tracking-wider text-[#9C6644] hover:text-[#1E1B18] transition-colors"
+              >
+                Acquista →
+              </a>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Coffee & Promo Split Section -->
+  <section id="caffe" class="max-w-7xl mx-auto px-5 sm:px-8 py-20">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center bg-[#EBE3D7] rounded-3xl overflow-hidden border border-[#DFD5C7]">
+      <div class="lg:col-span-6 h-full">
+        <img
+          src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1100&q=85"
+          alt="Caffè espresso Bialetti"
+          class="w-full h-full min-h-[360px] object-cover"
+        />
+      </div>
+      <div class="lg:col-span-6 p-8 sm:p-12 lg:p-14">
+        <p class="text-xs uppercase tracking-[0.24em] text-[#9C6644] font-semibold">
+          Offerta Promo Limitata
+        </p>
+        <h2 class="font-serif text-3xl sm:text-5xl font-medium mt-3 leading-tight text-[#1E1B18]">
+          Voglia irresistibile di caffè?
+        </h2>
+        <p class="text-sm sm:text-base text-[#5C534A] mt-4 leading-relaxed">
+          Scopri le nostre offerte esclusive su <strong>capsule originali e compatibili Bialetti</strong>, set degustazione e accessori per il tuo rito quotidiano. Personalizza il tuo ordine scegliendo liberamente i tuoi gusti preferiti.
+        </p>
+        <div class="mt-8 flex flex-wrap gap-4">
+          <a
+            href="/prodotto"
+            class="bg-[#1E1B18] hover:bg-[#35302B] text-white text-xs uppercase tracking-[0.18em] font-semibold px-7 py-4 rounded-full transition-colors"
+          >
+            Scopri le Offerte Capsule
+          </a>
+          <a
+            href="https://wa.me/39034581149"
+            target="_blank"
+            rel="noopener"
+            class="border border-[#1E1B18]/30 hover:border-[#1E1B18] text-[#1E1B18] text-xs uppercase tracking-[0.18em] font-semibold px-6 py-4 rounded-full transition-colors"
+          >
+            Ordina su WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Polentine OVBC & Amazon Store Banner -->
+  <section id="polentine" class="max-w-7xl mx-auto px-5 sm:px-8 pb-24 grid grid-cols-1 lg:grid-cols-2 gap-8">
+    <!-- OVBC -->
+    <div class="bg-[#FAF7F2] border border-[#E2D9CD] rounded-3xl p-8 sm:p-10 flex flex-col justify-between">
+      <div>
+        <p class="text-xs uppercase tracking-[0.24em] text-[#9C6644] font-semibold">Tradizione in Cucina</p>
+        <h3 class="font-serif text-3xl sm:text-4xl font-medium mt-2">Polentine Elettriche OVBC</h3>
+        <p class="text-sm text-[#665C52] mt-3 leading-relaxed">
+          Paioli elettrici in rame e alluminio per preparare la polenta senza fatica, con pale mescolatrici motorizzate e ricambi originali sempre disponibili nel nostro store.
+        </p>
+      </div>
+      <div class="mt-8">
+        <a href="/contatti" class="inline-flex items-center text-xs uppercase tracking-wider font-semibold text-[#1E1B18] border-b border-[#1E1B18] pb-1 hover:text-[#9C6644] hover:border-[#9C6644] transition-colors">
+          Richiedi disponibilità modelli →
+        </a>
+      </div>
+    </div>
+
+    <!-- Amazon Vetrina -->
+    <div id="amazon" class="bg-[#27231F] text-white rounded-3xl p-8 sm:p-10 flex flex-col justify-between">
+      <div>
+        <p class="text-xs uppercase tracking-[0.24em] text-[#D7B99B] font-semibold">Catalogo Esteso</p>
+        <h3 class="font-serif text-3xl sm:text-4xl font-medium mt-2">Tutto questo non ti basta?</h3>
+        <p class="text-sm text-[#CFC6BC] mt-3 leading-relaxed">
+          Vuoi scoprire oltre <strong>1.000 articoli per la casa</strong>, ferramenta, giardinaggio e piccoli elettrodomestici? Visita il nostro Store ufficiale su Amazon per un catalogo ancora più vasto.
+        </p>
+      </div>
+      <div class="mt-8">
+        <a
+          href="https://www.amazon.it"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-block bg-[#9C6644] hover:bg-[#835335] text-white text-xs uppercase tracking-[0.18em] font-semibold px-7 py-3.5 rounded-full transition-colors"
+        >
+          Visita lo Store Amazon
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>

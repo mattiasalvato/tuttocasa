@@ -1,0 +1,124 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Contatti e Punto Vendita — Tuttocasa 1974">
+  <section class="max-w-7xl mx-auto px-5 sm:px-8 pt-36 pb-24">
+    <div class="max-w-2xl">
+      <p class="text-xs uppercase tracking-[0.24em] text-[#9C6644] font-semibold">
+        Assistenza Clienti & Negozio
+      </p>
+      <h1 class="font-serif text-4xl sm:text-6xl font-medium mt-3 text-[#1E1B18]">
+        Siamo a tua disposizione.
+      </h1>
+      <p class="text-sm sm:text-base text-[#63594F] mt-4 leading-relaxed">
+        Hai bisogno di informazioni su un ordine, vuoi comporre un box misto di capsule Bialetti o verificare la disponibilità di un articolo? Contattaci direttamente o vieni a trovarci in negozio.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 mt-14">
+      <!-- Info Column -->
+      <div class="lg:col-span-5 space-y-6">
+        <div class="bg-[#F2ECE3] border border-[#E2D9CD] rounded-3xl p-8 space-y-6">
+          <div>
+            <p class="text-xs uppercase tracking-wider text-[#9C6644] font-semibold">Punto Vendita</p>
+            <p class="font-serif text-2xl font-semibold mt-1">Ferramenta Tuttocasa S.n.c.</p>
+            <p class="text-sm text-[#5C534A] mt-2">
+              Via B. Belotti, 135<br />
+              24014 Piazza Brembana (BG)<br />
+              P.IVA 02977350160
+            </p>
+          </div>
+
+          <div class="pt-5 border-t border-[#DFD5C7]">
+            <p class="text-xs uppercase tracking-wider text-[#9C6644] font-semibold">Recapiti Diretti</p>
+            <p class="text-sm text-[#1E1B18] mt-2">
+              Telefono: <a href="tel:034581149" class="font-semibold hover:underline">0345 81149</a>
+            </p>
+            <p class="text-sm text-[#1E1B18] mt-1">
+              Email: <a href="mailto:info@tuttocasa1974.com" class="font-semibold hover:underline">info@tuttocasa1974.com</a>
+            </p>
+          </div>
+
+          <div class="pt-5 border-t border-[#DFD5C7]">
+            <a
+              href="https://wa.me/39034581149"
+              target="_blank"
+              rel="noopener"
+              class="w-full inline-flex items-center justify-center bg-[#1E1B18] hover:bg-[#35302B] text-white text-xs uppercase tracking-[0.18em] font-semibold py-4 px-6 rounded-full transition-colors"
+            >
+              Scrivici su WhatsApp (0345 81149)
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Form Column -->
+      <div class="lg:col-span-7 bg-white border border-[#E5DDD2] rounded-3xl p-8 sm:p-10">
+        <h2 class="font-serif text-3xl font-medium text-[#1E1B18]">Invia una richiesta</h2>
+        <p class="text-xs text-[#72675D] mt-1.5">Rispondiamo entro poche ore lavorative.</p>
+
+        <form id="contact-form" class="mt-7 space-y-5">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+            <div>
+              <label class="block text-xs font-semibold uppercase tracking-wider text-[#1E1B18] mb-2">Nome e Cognome</label>
+              <input
+                type="text"
+                required
+                placeholder="Es. Marco Rossi"
+                class="w-full rounded-xl border border-[#D8CFC3] bg-[#FAF7F2] px-4 py-3 text-sm focus:outline-none focus:border-[#9C6644]"
+              />
+            </div>
+            <div>
+              <label class="block text-xs font-semibold uppercase tracking-wider text-[#1E1B18] mb-2">Email o Telefono</label>
+              <input
+                type="text"
+                required
+                placeholder="nome@email.it"
+                class="w-full rounded-xl border border-[#D8CFC3] bg-[#FAF7F2] px-4 py-3 text-sm focus:outline-none focus:border-[#9C6644]"
+              />
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-xs font-semibold uppercase tracking-wider text-[#1E1B18] mb-2">Argomento</label>
+            <select class="w-full rounded-xl border border-[#D8CFC3] bg-[#FAF7F2] px-4 py-3 text-sm focus:outline-none focus:border-[#9C6644]">
+              <option>Informazioni Profumatori Muhà</option>
+              <option>Ordine personalizzato Capsule Bialetti</option>
+              <option>Polentine Elettriche OVBC</option>
+              <option>Assistenza ordine / Spedizione</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="block text-xs font-semibold uppercase tracking-wider text-[#1E1B18] mb-2">Messaggio</label>
+            <textarea
+              rows="4"
+              required
+              placeholder="Scrivi qui la tua richiesta..."
+              class="w-full rounded-xl border border-[#D8CFC3] bg-[#FAF7F2] px-4 py-3 text-sm focus:outline-none focus:border-[#9C6644]"
+            ></textarea>
+          </div>
+
+          <button
+            type="submit"
+            class="bg-[#9C6644] hover:bg-[#835335] text-white text-xs uppercase tracking-[0.18em] font-semibold px-8 py-4 rounded-full transition-colors"
+          >
+            Invia Messaggio
+          </button>
+
+          <p id="form-success" class="hidden text-xs text-[#2D6A4F] font-medium pt-2">
+            Messaggio inviato correttamente! Ti ricontatteremo al più presto.
+          </p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    document.getElementById('contact-form')?.addEventListener('submit', (e) => {
+      e.preventDefault();
+      document.getElementById('form-success')?.classList.remove('hidden');
+    });
+  </script>
+</Layout>

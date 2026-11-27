@@ -1,0 +1,182 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const fragrances = [
+  "Fiori di Cotone",
+  "Vaniglia e Legno di Cedro",
+  "Brezzamarina",
+  "Melograno e Ribes",
+  "Talco e Muschio Bianco",
+];
+
+const gallery = [
+  "https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?auto=format&fit=crop&w=1000&q=85",
+  "https://images.unsplash.com/photo-1602928321679-560bb453f190?auto=format&fit=crop&w=1000&q=85",
+  "https://images.unsplash.com/photo-1616046229478-9901c5536a45?auto=format&fit=crop&w=1000&q=85",
+];
+---
+
+<Layout title="Flower Diffuser Muhà 100ml — Tuttocasa 1974">
+  <section class="max-w-7xl mx-auto px-5 sm:px-8 pt-36 pb-20">
+    <!-- Breadcrumb -->
+    <nav class="text-xs text-[#7D7267] mb-8 flex items-center gap-2">
+      <a href="/" class="hover:text-[#1E1B18]">Home</a>
+      <span>/</span>
+      <a href="/#collezioni" class="hover:text-[#1E1B18]">Profumatori Muhà</a>
+      <span>/</span>
+      <span class="text-[#1E1B18] font-medium">Flower Diffuser 100ml</span>
+    </nav>
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+      <!-- Left Gallery -->
+      <div class="lg:col-span-7 space-y-4">
+        <div class="aspect-[4/4] rounded-3xl overflow-hidden bg-[#EDE6DC] border border-[#E2D9CD]">
+          <img
+            id="main-product-img"
+            src={gallery[0]}
+            alt="Flower Diffuser Muhà"
+            class="w-full h-full object-cover"
+          />
+        </div>
+        <div class="grid grid-cols-3 gap-4">
+          {gallery.map((img, idx) => (
+            <button
+              type="button"
+              data-src={img}
+              class="thumb-btn aspect-[4/3] rounded-2xl overflow-hidden border-2 border-transparent focus:border-[#9C6644] hover:opacity-90 transition-all bg-[#EDE6DC]"
+            >
+              <img src={img} alt={`Vista ${idx + 1}`} class="w-full h-full object-cover" />
+            </button>
+          ))}
+        </div>
+      </div>
+
+      <!-- Right Purchase Box -->
+      <div class="lg:col-span-5 lg:sticky lg:top-28">
+        <p class="text-xs uppercase tracking-[0.24em] text-[#9C6644] font-semibold">
+          Muhà • Profumazione Ambiente
+        </p>
+        <h1 class="font-serif text-3xl sm:text-5xl font-medium mt-2 text-[#1E1B18] leading-tight">
+          Flower Diffuser in Vetro con Fiore in Betulla
+        </h1>
+
+        <div class="mt-4 flex items-baseline gap-4">
+          <span class="text-2xl font-semibold text-[#1E1B18]">19,90 €</span>
+          <span class="text-xs text-[#6F655B]">IVA inclusa • Disponibilità immediata</span>
+        </div>
+
+        <p class="text-sm text-[#5C534A] mt-5 leading-relaxed">
+          Diffusore per ambienti in vetro sagomato completato da un fiore realizzato artigianalmente in legno di betulla naturale, che assorbe l’essenza e la diffonde gradualmente arredando ogni stanza.
+        </p>
+
+        <!-- Fragrance Selector -->
+        <div class="mt-7">
+          <label class="block text-xs uppercase tracking-wider font-semibold text-[#1E1B18] mb-3">
+            Fragranza: <span id="selected-fragrance" class="text-[#9C6644]">{fragrances[0]}</span>
+          </label>
+          <div class="flex flex-wrap gap-2">
+            {fragrances.map((frag, index) => (
+              <button
+                type="button"
+                data-frag={frag}
+                class:list={[
+                  "frag-btn text-xs px-3.5 py-2 rounded-full border transition-all",
+                  index === 0
+                    ? "bg-[#1E1B18] text-white border-[#1E1B18]"
+                    : "bg-[#FAF7F2] text-[#1E1B18] border-[#D8CFC3] hover:border-[#1E1B18]",
+                ]}
+              >
+                {frag}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        <!-- Format Selector -->
+        <div class="mt-6">
+          <label class="block text-xs uppercase tracking-wider font-semibold text-[#1E1B18] mb-2.5">
+            Formato
+          </label>
+          <div class="grid grid-cols-2 gap-3">
+            <div class="border-2 border-[#1E1B18] bg-[#F2ECE3] rounded-xl p-3">
+              <p class="text-xs font-semibold">Diffusore 100 ml</p>
+              <p class="text-[11px] text-[#6B6157] mt-0.5">Completo di fiore • 19,90 €</p>
+            </div>
+            <div class="border border-[#D8CFC3] rounded-xl p-3 opacity-80 hover:opacity-100 cursor-pointer">
+              <p class="text-xs font-semibold">Ricarica 250 ml</p>
+              <p class="text-[11px] text-[#6B6157] mt-0.5">Flacone refill • 14,50 €</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Add to Cart CTA -->
+        <div class="mt-8 flex items-center gap-3">
+          <div class="flex items-center border border-[#D4CBBF] rounded-full bg-white">
+            <button type="button" id="qty-minus" class="px-4 py-3 text-sm font-semibold hover:text-[#9C6644]">−</button>
+            <span id="qty-val" class="px-2 text-sm font-semibold">1</span>
+            <button type="button" id="qty-plus" class="px-4 py-3 text-sm font-semibold hover:text-[#9C6644]">+</button>
+          </div>
+
+          <button
+            type="button"
+            id="add-cart-btn"
+            class="flex-1 bg-[#9C6644] hover:bg-[#835335] text-white text-xs uppercase tracking-[0.18em] font-semibold py-4 px-6 rounded-full transition-colors"
+          >
+            Aggiungi al Carrello
+          </button>
+        </div>
+
+        <p id="cart-feedback" class="hidden mt-3 text-xs text-[#2D6A4F] font-medium">
+          Prodotto aggiunto al carrello demo! (Spedizione gratuita sopra 29€)
+        </p>
+
+        <!-- Shipping & Trust Notes -->
+        <div class="mt-8 pt-6 border-t border-[#E4DDD2] space-y-2.5 text-xs text-[#63594F]">
+          <p>• Spedizione gratuita in tutta Italia con ordine minimo di <strong>29€</strong></p>
+          <p>• Consegna espressa in <strong>48/72h</strong> tramite SDA e BRT</p>
+          <p>• Dubbi sulla fragranza? <a href="https://wa.me/39034581149" class="underline text-[#1E1B18] font-medium">Scrivici su WhatsApp (0345 81149)</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const mainImg = document.getElementById('main-product-img') as HTMLImageElement;
+    document.querySelectorAll('.thumb-btn').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const src = btn.getAttribute('data-src');
+        if (src && mainImg) mainImg.src = src;
+      });
+    });
+
+    const selectedFragEl = document.getElementById('selected-fragrance');
+    document.querySelectorAll('.frag-btn').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.frag-btn').forEach((b) => {
+          b.classList.remove('bg-[#1E1B18]', 'text-white', 'border-[#1E1B18]');
+          b.classList.add('bg-[#FAF7F2]', 'text-[#1E1B18]', 'border-[#D8CFC3]');
+        });
+        btn.classList.add('bg-[#1E1B18]', 'text-white', 'border-[#1E1B18]');
+        btn.classList.remove('bg-[#FAF7F2]', 'text-[#1E1B18]', 'border-[#D8CFC3]');
+        if (selectedFragEl) selectedFragEl.textContent = btn.getAttribute('data-frag');
+      });
+    });
+
+    let qty = 1;
+    const qtyEl = document.getElementById('qty-val');
+    document.getElementById('qty-minus')?.addEventListener('click', () => {
+      if (qty > 1) {
+        qty--;
+        if (qtyEl) qtyEl.textContent = String(qty);
+      }
+    });
+    document.getElementById('qty-plus')?.addEventListener('click', () => {
+      qty++;
+      if (qtyEl) qtyEl.textContent = String(qty);
+    });
+
+    document.getElementById('add-cart-btn')?.addEventListener('click', () => {
+      document.getElementById('cart-feedback')?.classList.remove('hidden');
+    });
+  </script>
+</Layout>
